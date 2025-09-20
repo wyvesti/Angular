@@ -1,1 +1,81 @@
-<p>cart works!</p>
+<!---<div class="burger-card">
+  <img [src]="image" [alt]="name">
+  <div class="info">
+    <h3>{{ name }}</h3>
+    <p>{{ price | price }}</p>
+  </div>
+  <app-badge [available]="available"></app-badge>
+  <app-button [disabled]="!available" variant="orange" (click)="add.emit()">Ajouter au panier</app-button>
+</div>--->
+
+<!---
+<div class="card">
+  <img [src]="imageUrl" [alt]="name" class="card-img">
+  <app-badge [text]="available ? 'Disponible' : 'Indisponible'" 
+             [color]="available ? 'green' : 'red'"></app-badge>
+  <h3 class="card-title">{{ name }}</h3>
+  <p class="card-price">{{ price | number:'1.2-2' }} €</p>
+  <app-button label="Ajouter au panier" [disabled]="!available" color="orange"></app-button>
+</div>
+--->
+
+
+<!-- <div class="product-card">
+  <img src="/assets/images/burger.jpg" alt="Burger" class="product-img" />
+  <div class="product-info">
+    <h3 class="product-title">Lorem ipsum</h3>
+    <p class="product-price">€7,90</p>
+    <div class="product-actions">
+      <button class="btn-icon">ℹ️</button>
+      <button class="btn-add">Ajouter au panier</button>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="cart-container">
+  <h1>Mon Panier</h1>
+
+  <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="cart-list">
+      <cart-line
+        *ngFor="let item of cartItems"
+        [id]="item.id"
+        [name]="item.name"
+        [price]="item.price"
+        [imageUrl]="item.imageUrl"
+        [available]="item.available"
+        (remove)="removeFromCart(item.id)">
+      </cart-line>
+    </div>
+
+    <total [total]="cartTotal"></total>
+
+    <app-button
+      label="Valider ma commande"
+      type="form-btn"
+      (click)="checkout()">
+    </app-button>
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <div class="empty">
+      <empty-state></empty-state>
+      <p>Votre panier est vide.</p>
+    </div>
+  </ng-template>
+</div>
+ -->
+
+<h2>Panier</h2>
+<div *ngIf="items.length === 0">Votre panier est vide</div>
+
+<div *ngFor="let item of items" class="cart-item">
+  <img [src]="item.imageUrl" [alt]="item.name" width="50" />
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency:'EUR' }}</span>
+  <button (click)="remove(item.id)">Supprimer</button>
+</div>
+
+<p *ngIf="items.length > 0">Total: {{ total | currency:'EUR' }}</p>
+<button *ngIf="items.length > 0" (click)="clear()">Vider le panier</button>

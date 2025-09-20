@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-button',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './button.html',
-  styleUrl: './button.css'
+  styleUrls: ['./button.css']
 })
-export class Button {
-
+export class AppButtonComponent {
+  @Input() disabled = false;
+  @Input() label = '';
+  @Input() type: 'inscription' | 'connexion' | 'logout' | 'profile' | '' | 'form-btn' = '';
 }
+

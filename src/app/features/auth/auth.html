@@ -1,1 +1,97 @@
-<p>auth works!</p>
+<!--<div class="auth-container">
+  <h2>{{ title }}</h2>
+
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm.value)">
+    <div *ngIf="mode === 'register'">
+      <label for="name">Nom</label>
+      <input type="text" id="name" name="name" ngModel>
+    </div>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" ngModel required>
+
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" ngModel required>
+
+    <button type="submit">
+      {{ mode === 'login' ? 'Se connecter' : 'S’inscrire' }}
+    </button>
+  </form>
+</div>-->
+
+
+<!---
+ 
+<div class="container">
+  <h1>{{ title }}</h1>
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm.value)">
+    <div *ngIf="mode === 'register'">
+      <empty-state type="text" placeholder="Nom" ></empty-state>
+    </div>
+
+    <empty-state type="email" placeholder="E-mail" ></empty-state>
+    <empty-state type="password" placeholder="Mot de passe" ></empty-state>
+    <div *ngIf="mode === 'register'">
+      <app-button label="Connexion" type="connexion"></app-button>
+    </div>
+    <div *ngIf="mode === 'login'">
+        <app-button label="Inscription" type="inscription"></app-button>
+    </div>
+  </form>
+</div>--->
+
+<!-- <div class="container">
+  <header></header>
+  <h1>{{ title }}</h1>
+
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm.value)">
+    <div *ngIf="mode === 'register'">
+      <empty-state
+        type="text"
+        placeholder="Nom"
+        name="name"
+        [(ngModel)]="form.name">
+      </empty-state>
+    </div>
+
+    <empty-state
+      type="email"
+      placeholder="E-mail"
+      name="email"
+      [(ngModel)]="form.email">
+    </empty-state>
+
+    <empty-state
+      type="password"
+      placeholder="Mot de passe"
+      name="password"
+      [(ngModel)]="form.password">
+    </empty-state>
+
+    <div>
+      <app-button
+        [label]="mode === 'login' ? 'Connexion' : 'Inscription'">
+      </app-button>
+    </div>
+  </form>
+</div>
+ -->
+
+ <div class="auth-container">
+  <h2>{{ mode === 'login' ? 'Connexion' : 'Inscription' }}</h2>
+
+  <form (ngSubmit)="submit()">
+    <div *ngIf="mode === 'register'">
+      <input type="text" placeholder="Nom" [(ngModel)]="name" name="name" required />
+    </div>
+
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+    <input type="password" placeholder="Mot de passe" [(ngModel)]="password" name="password" required />
+
+    <button type="submit">{{ mode === 'login' ? 'Se connecter' : "S'inscrire" }}</button>
+  </form>
+
+  <p class="toggle" (click)="toggleMode()">
+    {{ mode === 'login' ? 'Pas encore de compte ? Inscrivez-vous' : 'Déjà un compte ? Connectez-vous' }}
+  </p>
+</div>

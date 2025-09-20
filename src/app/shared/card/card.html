@@ -1,1 +1,9 @@
-<p>card works!</p>
+<div class="card">
+  <img [src]="imageUrl" [alt]="name" class="card-img">
+  <div class="card-body">
+    <h3>{{ name }}</h3>
+    <p class="price">{{ price | currency:'EUR':'symbol':'1.2-2':'fr' }}</p> <!--mettre pipe plus tard-->
+    <app-badge [available]="available"></app-badge>
+  </div>
+  <app-button [disabled]="!available" (click)="add.emit()">Ajouter au panier</app-button>
+</div>

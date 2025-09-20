@@ -1,0 +1,8 @@
+<div class="card">
+  <img [src]="imageUrl" alt="product" />
+  <div class="info">
+    <p class="title">{{ name }}</p>
+    <p class="price">{{ price }}</p>
+  </div>
+  <app-button (click)="remove.emit(id)" label="Supprimer"></app-button>
+</div>

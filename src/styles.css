@@ -1,1 +1,504 @@
-/* You can add global styles to this file, and also import other style files */
+/* :root {
+  --black: #0d0d0d;
+  --dark-gray: #1c1c1c;
+  --white: #ffffff;
+  --orange: #f7931a;
+  --red: #e63946;
+  --text-gray: #cccccc;
+}
+
+
+html, body, app-root {
+  height: 100%;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+} */
+
+/* src/styles.css
+   Pixel-approx CSS basé sur la maquette fournie (0c447c37-7bce-...png)
+   - Variables globales
+   - Fonts
+   - Styles pour tous les composants fournis par l'utilisateur
+*/
+
+/* ======= Fonts ======= */
+/* Deux polices : une pour les titres (display, arrondie et lourde) et Poppins pour le texte */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ======= CSS Variables ======= */
+:root{
+  /* EXISTANTES (respect) - si tu as déjà --orange, --black, --white, ils seront préservés
+     mais on les redéfinit ici pour assurer la cohérence du thème */
+  --black: #0e0e0e;            /* fond principal (maquette) */
+  --panel: #141414;           /* panneaux / cartes plus clairs */
+  --card-bg: #1e1e1e;         /* surface des cartes */
+  --muted: #b3b3b3;           /* textes secondaires */
+  --white: #ffffff;
+  --orange: #f29a32;         /* orange principal (échantillonné depuis la maquette) */
+  --orange-dark: #d2762a;    /* orange pour hover / boutons actifs */
+  --glass: rgba(255,255,255,0.03); /* pour bordures douces */
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-strong: 0 10px 30px rgba(0,0,0,0.65);
+  --shadow-soft: 0 6px 18px rgba(0,0,0,0.55);
+  --card-padding: 18px;
+  --gutter: 20px;
+  --max-width: 1200px;
+  --title-font: 'Fredoka One', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --body-font: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ======= Global reset / base ======= */
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
+body{
+  margin: 0;
+  font-family: var(--body-font);
+  background: var(--black);
+  color: var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+  padding: 24px;
+}
+
+/* Contrainte de largeur comme sur la maquette */
+.app-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ======= Header ======= */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 22px;
+  background: transparent;
+  border-radius: 12px;
+  gap: 12px;
+}
+.header .logo{
+  font-family: var(--title-font);
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--white);
+  text-transform:uppercase;
+}
+.header .actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.header .actions .btn{
+  background: transparent;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight:600;
+  font-size: 14px;
+  border: 2px solid transparent;
+  cursor:pointer;
+}
+.header .actions .inscription{
+  color: var(--white);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.header .actions .connexion{
+  color: var(--black);
+  background: var(--orange);
+  box-shadow: var(--shadow-soft);
+  padding: 9px 14px;
+}
+
+/* ======= Hero (home) ======= */
+.hero{
+  display:flex;
+  gap: var(--gutter);
+  align-items:flex-start;
+  margin-bottom: 28px;
+}
+.hero-visual{
+  flex: 0 0 420px; /* image / hero left column size like maquette */
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  box-shadow: var(--shadow-strong);
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+  padding: 22px;
+}
+.hero-visual img{ width:100%; height:auto; display:block; object-fit:cover; }
+.hero-title{
+  font-family: var(--title-font);
+  font-size: 96px;            /* très gros comme "BURGERITO" */
+  line-height: 0.9;
+  margin: 14px 0 6px 0;
+  color: var(--orange);
+  text-transform:uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.8);
+}
+/* sous-texte */
+.hero-sub{
+  max-width:380px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.4;
+}
+
+/* ======= Grid produits ======= */
+.products{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour la vue desktop comme la maquette */
+  gap: 18px;
+}
+.grid .card{
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: var(--shadow-soft);
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap: 10px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+.grid .card img{
+  width:100%;
+  height:130px;
+  object-fit:cover;
+  border-radius: 10px;
+  display:block;
+  box-shadow: inset 0 -10px 40px rgba(0,0,0,0.45);
+}
+.grid .card h3{
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+}
+.grid .card .price{
+  font-weight:600;
+  color: var(--muted);
+  font-size:14px;
+}
+.grid .card app-button{
+  margin-top:auto;
+  align-self:stretch;
+}
+
+/* small pill under card for availability etc. */
+.card .card-body{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* ======= App Badge (app-badge) ======= */
+app-badge .badge, .badge {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius: 999px;
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:0.4px;
+  background: rgba(255,255,255,0.03);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+app-badge .badge.available, .badge.available{
+  background: rgba(242,154,50,0.12);
+  color: var(--orange);
+  border: 1px solid rgba(242,154,50,0.16);
+}
+app-badge .badge.unavailable, .badge.unavailable{
+  background: rgba(255,255,255,0.02);
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* ======= App Button (app-button) ======= */
+/* The component renders <button class="nav-btn" [ngClass]="type"...> */
+.nav-btn {
+  font-family: var(--body-font);
+  font-size:15px;
+  font-weight:700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+.nav-btn:active { transform: translateY(1px); }
+
+/* Types (tu utilises type strings dans ton composant AppButtonComponent) */
+.nav-btn.inscription {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+}
+.nav-btn.connexion {
+  background: var(--orange);
+  color: var(--black);
+}
+.nav-btn.logout {
+  background: transparent;
+  color: var(--muted);
+}
+.nav-btn.profile {
+  background: rgba(255,255,255,0.03);
+  color: var(--white);
+}
+
+/* Disabled state */
+.nav-btn[disabled], .nav-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+/* ======= Card component (app-card) - styles qui ciblent ta structure fournie ======= */
+.card {
+  display:flex;
+  align-items:flex-start;
+  gap: 12px;
+}
+.card .card-img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius: 10px;
+  flex-shrink:0;
+}
+.card .card-body{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1;
+}
+.card .card-body h3{
+  font-size:18px;
+  margin:0;
+  color:var(--white);
+}
+.card .card-body .price{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* ======= Cart page ======= */
+.cart-container{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.cart-list{
+  width: 62%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.cart-summary{
+  width: 34%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 14px;
+  padding: 18px;
+  min-height:160px;
+  box-shadow: var(--shadow-soft);
+}
+.cart-item, .card.cart-line{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background: var(--card-bg);
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+.card.cart-line img{ width:64px; height:64px; border-radius:8px; object-fit:cover; }
+.card.cart-line .info{ flex:1; display:flex; gap:6px; flex-direction:column; }
+.card.cart-line .title{ font-weight:700; font-size:15px; }
+.card.cart-line .price{ color:var(--muted); font-size:14px; }
+
+/* Remove button on cart lines (app-button) */
+.card.cart-line app-button { flex-shrink:0; }
+
+/* Empty cart state */
+.empty-cart{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border-radius: 12px;
+  padding: 40px;
+  color:var(--muted);
+}
+
+/* ======= Product detail page ======= */
+.product-detail{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+}
+.product-detail img{
+  width:420px;
+  height:340px;
+  object-fit:cover;
+  border-radius: 14px;
+  box-shadow: var(--shadow-strong);
+}
+.product-detail h1{
+  font-family:var(--title-font);
+  font-size:44px;
+  margin:0 0 8px 0;
+  color:var(--white);
+}
+.product-detail p{
+  color:var(--muted);
+  margin:6px 0;
+  max-width:560px;
+}
+
+/* Unavailable state */
+.unavailable{ color:#ff6b6b; font-weight:700; }
+
+/* ======= Auth (login / register) ======= */
+.auth-container{
+  width: 460px;
+  margin: 40px auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-strong);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.auth-container h2{
+  margin:0 0 18px 0;
+  font-family:var(--title-font);
+  font-size:36px;
+  color:var(--white);
+  text-align:center;
+}
+.auth-container form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"]{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding:12px 14px;
+  border-radius: 10px;
+  color:var(--white);
+  font-size:14px;
+}
+.auth-container input::placeholder{ color: rgba(255,255,255,0.35); }
+.auth-container button[type="submit"]{
+  background: var(--orange);
+  color: var(--black);
+  border-radius: 12px;
+  padding:12px;
+  font-weight:800;
+  font-size:15px;
+  border:none;
+  margin-top:6px;
+}
+.auth-container .toggle{
+  margin-top:12px;
+  text-align:center;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* ======= Order confirm page ======= */
+.order-confirm{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding: 54px 20px;
+  gap:18px;
+}
+.order-confirm h2{
+  font-family:var(--title-font);
+  font-size:32px;
+  color:var(--white);
+}
+.order-confirm p{ color:var(--muted); }
+
+/* ======= Profile page ======= */
+.content{
+  display:flex;
+  gap:30px;
+  align-items:flex-start;
+}
+.profile-info{
+  width: 40%;
+  background: var(--card-bg);
+  padding:18px;
+  border-radius:12px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+.profile-title{ font-family:var(--title-font); font-size:22px; margin-bottom:10px; }
+.btn-logout{
+  background: var(--orange);
+  border-radius: 10px;
+  padding: 10px 12px;
+  border:none;
+  color: var(--black);
+  font-weight:700;
+  margin-top:10px;
+}
+
+/* Orders list */
+.profile-orders{ flex:1; }
+.order-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:14px;
+  border-radius:12px;
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+/* Empty-state component styling (app-empty-state) 
+   Your component currently renders an <input> in markup snippet; we style generically */
+.empty-state, app-empty-state {
+  display:block;
+  text-align:center;
+  padding: 18px;
+  color: var(--muted);
+  border-radius: 12px;
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 1024px){
+  .products{ grid-template-columns: repeat(2, 1fr); }
+  .hero{ flex-direction:column; }
+  .product-detail{ flex-direction:column; }
+  .auth-container{ width: 92%; padding:20px; }
+}
+@media (max-width: 600px){
+  .products{ grid-template-columns: 1fr; gap:12px; }
+  .hero-title{ font-size:56px; }
+  .header .logo{ font-size:18px; }
+  .product-detail img{ width:100%; height:auto; }
+  .cart-container{ flex-direction:column; }
+}

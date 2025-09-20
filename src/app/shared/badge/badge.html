@@ -1,0 +1,8 @@
+<!---<span class="badge" [class.available]="available" [class.unavailable]="!available">--->
+<span class="badge" [class.available]="available" [class.unavailable]="!available">
+  {{ text || (available ? 'Disponible' : 'Indisponible') }}
+</span>
+
+<!---<span class="badge" [class.available]="available" [class.unavailable]="!available">
+               {{ available ? 'Disponible' : 'Indisponible' }}
+             </span>--->

@@ -1,1 +1,64 @@
-<p>order-confirm works!</p>
+<!-- <div class="container">
+  <div class="nav">
+    <app-button label="Me déconnecter" type="logout"></app-button>
+    <app-button label="Mon profile" type="profile"></app-button>
+  </div>
+
+  <a class="back" href="#">← Retour à l’accueil</a>
+  <h1>Prénom</h1>
+
+  <section class="orders">
+    <h2>03 mai 2025</h2>
+    <div class="grid">
+        <cart-line
+          image="assets/burger.png"
+          title="Lorem ipsum"
+          [price]="7.90"
+          quantity="2"></cart-line>
+          <cart-line
+          image="assets/burger.png"
+          title="Lorem ipsum"
+          [price]="7.90"
+          quantity="2"></cart-line>
+          <cart-line
+          image="assets/burger.png"
+          title="Lorem ipsum"
+          [price]="7.90"
+          quantity="2"></cart-line>
+    </div>
+  </section>
+
+  <section class="orders">
+    <h2>14 décembre 2025</h2>
+    <div class="grid">
+      <cart-line image="assets/burger.png" title="Lorem ipsum" [price]="7.90" quantity="1"></cart-line>
+    </div>
+  </section>
+</div>
+ -->
+<!-- 
+ <div class="container">
+  <div class="nav">
+    <app-button label="Me déconnecter" type="logout" (click)="logout()"></app-button>
+    <app-button label="Mon profil" type="profile" (click)="goToProfile()"></app-button>
+  </div>
+
+  <a class="back" routerLink="/">← Retour à l’accueil</a>
+
+  <h1>{{ user?.firstName }}</h1>
+
+  <section class="orders" *ngFor="let order of orders$ | async">
+    <h2>{{ order.date | date:'dd MMMM yyyy' }}</h2>
+    <div class="grid">
+      <cart-line
+        *ngFor="let item of order.items"
+        [imageUrl]="item.imageUrl"
+        [title]="item.name"
+        [price]="item.price"
+      ></cart-line>
+    </div>
+  </section>
+</div> -->
+<h2>Commande confirmée !</h2>
+<p>Merci pour votre achat 🍔</p>
+<a routerLink="/home">Retour à l'accueil</a>

@@ -1,0 +1,14 @@
+.form-input {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--dark-gray);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--white);
+  margin: 8px 0;
+}
+.form-input::placeholder {
+  color: var(--text-gray);
+}
+

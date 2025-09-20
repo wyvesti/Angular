@@ -1,9 +1,9 @@
 export interface ProductVM {
     id: string;
-    title: string;
+    name: string;
     description: string;
     price: number;
-    image: string;
+    imageUrl: string;
     available: boolean;
-    availabilityLabel: string;
+    availabilityLabel: string
 }

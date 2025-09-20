@@ -1,0 +1,64 @@
+/*.ui-badge-available {
+  background-color: #16a34a; /* green-500 
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.ui-badge-unavailable {
+  background-color: #dc2626; /* red-500 
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}*/
+
+
+
+
+
+
+
+
+
+
+/*
+:root{
+  --green: #16a34a;
+  --red: #dc2626;
+  --badge-radius: 8px;
+  --font-main: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.ui-badge{
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: var(--badge-radius);
+  display: inline-block;
+  min-width: 84px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.45);
+}
+
+.ui-badge-available{
+  background: var(--green);
+  color: #fff;
+}
+
+.ui-badge-unavailable{
+  background: var(--red);
+  color: #fff;
+}*/
+
+.badge {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.badge.available { background: #28a745; color: #fff; }
+.badge.unavailable { background: #dc3545; color: #fff; }
+

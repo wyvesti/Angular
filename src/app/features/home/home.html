@@ -1,1 +1,150 @@
-<p>home works!</p>
+<!---<div class="home-root"> 
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">LOGO</div>
+      <div class="actions">
+        <button class="ghost">Inscription</button>
+        <button class="ghost primary">Connexion</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-media" [style.backgroundImage]="'url(assets/hero-burger.jpg)'"></div>
+    <div class="hero-overlay">
+      <p class="hero-sub">Lorem ipsum dolor sit amet consectetur. Velit nisl tempus mattis sit mauris nunc.</p>
+      <h1 class="hero-title">BURGERITO</h1>
+    </div>
+  </section>
+
+  <main class="content">
+    <section class="burger-grid" aria-label="Produits">
+      <card
+        *ngFor="let product of products$ | async"
+        [id]="product.id"
+        [name]="product.name"
+        [price]="product.price"
+        [image]="product.image"
+        [available]="product.available"
+        (add)="addToCart($event)">
+      </card>
+    </section>
+  </main>
+</div> --->
+
+
+
+
+
+
+
+
+
+<!---
+<header class="header">
+  <div class="logo">LOGO</div>
+  <div class="header-buttons">
+    <app-button >Inscription</app-button>
+    <app-button color="orange">Connexion</app-button>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="assets/hero-burger.jpg" alt="Hero Burger" class="hero-bg">
+  <div class="hero-overlay">
+    <p class="hero-text">
+      Lorem ipsum dolor sit amet consectetur. Velit nisl tempus mattis sit mauris nunc adipiscing sit massa.
+    </p>
+    <h1 class="hero-title">BURGERITO</h1>
+  </div>
+</section>
+
+
+<main class="products">
+  <div class="grid">
+    <card
+      *ngFor="let p of products$ | async"
+      [name]="p.name"
+      [price]="p.price"
+      [imageUrl]="p.image"
+      [available]="p.available"
+      (add)="addToCart(p.id)">
+    </card>
+  </div>
+</main>
+-->
+
+
+
+
+<!-- <div class="home">
+  <app-header></app-header>
+  <main class="home-content">
+    <section class="hero">
+  <div class="hero-overlay">
+    <p class="hero-text">
+      Lorem ipsum dolor sit amet consectetur. Velit nisl tempus mattis sit mauris nunc adipiscing sit massa.
+      Maecenas vel facilisis arcu turpis nunc.
+    </p>
+    <h1 class="hero-title">BURGERITO</h1>
+  </div>
+</section>
+
+    <section class="products">
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+      <card></card>
+    </section>
+  </main>
+</div> -->
+
+<div class="home">
+  <main class="home-content">
+    <section class="hero">
+      <div class="hero-overlay">
+        <p class="hero-text">
+          Lorem ipsum dolor sit amet consectetur. Velit nisl tempus mattis sit mauris nunc adipiscing sit massa. 
+          Maecenas vel facilisis arcu turpis nunc.
+        </p>
+        <h1 class="hero-title">BURGERITO</h1>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="grid">
+        <!-- <app-card
+          *ngFor="let product of products$ | async"
+          [id]="product.id"
+          [name]="product.name"
+          [price]="product.price"
+          [imageUrl]="product.imageUrl"
+          [available]="product.available"
+          (addToCart)="addToCart(product.id)">
+        </app-card> -->
+        <div *ngFor="let product of products" class="grid">
+    <img [src]="product.imageUrl" [alt]="product.name" />
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price | currency:'EUR' }}</p>
+    <button [disabled]="!product.available">Ajouter au panier</button>
+  </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- <h1>Nos Burgers</h1>
+<div class="products">
+  <div *ngFor="let product of products" class="grid">
+    <img [src]="product.imageUrl" [alt]="product.name" />
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price | currency:'EUR' }}</p>
+    <button [disabled]="!product.available">Ajouter au panier</button>
+  </div>
+</div> -->
+
